@@ -35,7 +35,7 @@ Route::get('/cart/decr/{id}/{qty}', [ShoppingController::class, 'decr'])->name('
 Route::get('/cart/rapid/add/{id}', [ShoppingController::class, 'rapid_add'])->name('cart.rapid.add');
 
 Route::get('/cart/checkout', [CheckoutController::class, 'index'])->name('cart.checkout');
-//Route::post('/cart/checkout', [CheckoutController::class, 'pay'])->name('cart.checkout.pay');
+Route::post('/cart/checkout', [CheckoutController::class, 'pay'])->name('cart.checkout.pay');
 
 Route::get('/search',[SearchController::class, 'search'] )->name('product.search');
 

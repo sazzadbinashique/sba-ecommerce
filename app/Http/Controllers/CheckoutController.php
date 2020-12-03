@@ -7,7 +7,6 @@ use Cart;
 use Session;
 use Stripe\Charge;
 use Stripe\Stripe;
-
 use Illuminate\Http\Request;
 
 class CheckoutController extends Controller
@@ -23,20 +22,20 @@ class CheckoutController extends Controller
      return view('checkout');
  }
     public function pay(){
-       /* Stripe::setApiKey("sk_test_62bQpTPhmiXDjY5bAiL5Mam8");
 
+        Stripe::setApiKey("sk_test_62bQpTPhmiXDjY5bAiL5Mam8");
         $charge = Charge::create([
             'amount' => Cart::total() * 100,
             'currency' => 'usd',
-            'description' => 'udemy course practice selling books',
+            'description' => 'practice selling books',
             'source' => request()->stripeToken
         ]);
 
-        Session::flash('success', 'Purchase successfull. wait for our email.');
+        Session::flash('success', 'Purchase successfully. wait for our email.');
 
-        Cart::destroy();*/
-/*
-        Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);*/
+        Cart::destroy();
+
+        Mail::to(request()->stripeEmail)->send(new \App\Mail\PurchaseSuccessful);
 
         return redirect('/');
     }
