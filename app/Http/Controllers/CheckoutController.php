@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+//use Illuminate\Support\Facades\Mail;
 use Mail;
 use Cart;
 use Session;
@@ -14,16 +15,17 @@ class CheckoutController extends Controller
 
  public function index(){
 
-    /* if(Cart::content()->count() == 0)
+     if(Cart::content()->count() == 0)
      {
          Session::flash('info', 'Your cart is still empty. do some shopping');
          return redirect()->back();
-     }*/
+     }
      return view('checkout');
  }
     public function pay(){
 
-        Stripe::setApiKey("sk_test_62bQpTPhmiXDjY5bAiL5Mam8");
+
+        Stripe::setApiKey(env('STRIPE_SECRET'));
         $charge = Charge::create([
             'amount' => Cart::total() * 100,
             'currency' => 'usd',

@@ -17,7 +17,7 @@
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/swiper.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/primary-menu.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('app/css/magnific-popup.css')}}">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
     <!--Styles for RTL-->
     <!--<link rel="stylesheet" type="text/css" href="css/rtl.css">-->
     <!--External fonts-->
@@ -32,6 +32,7 @@
     <div class="container">
         <div class="header-content-wrapper">
             <ul class="nav-add">
+
                 @guest
                     <li class="nav-item" style="margin: 5px; padding: 5px;">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -57,6 +58,12 @@
                         </div>
                     </div>
                 </li>
+                @auth
+                    <li class="nav-item" style="margin: 5px; padding: 5px;">
+                        <a class="nav-link" href="{{ route('login') }}">{{ __('My Account') }}</a>
+                    </li>
+
+                @endauth
             </ul>
         </div>
 
@@ -114,9 +121,15 @@
 <script src="{{asset('app/js/velocity.min.js')}}"></script>
 <script src="{{asset('app/js/ScrollMagic.min.js')}}"></script>
 <script src="{{asset('app/js/animation.velocity.min.js')}}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 
 <!-- ...end JS Script -->
 
+<script>
+    @if(Session::has('success'))
+    toastr.success('{{Session::get('success')}}')
+    @endif
+</script>
 
 </body>
 

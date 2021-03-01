@@ -74,7 +74,7 @@
                                                   {{ csrf_field() }}
                                                   <script
                                                       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                      data-key="pk_test_49o7ISW77yQcjzjWCBvTvCbk"
+                                                      data-key="pk_test_51HuAWADdK6qIMdvwXoaPA05EfHCUXqG0f7Vpo9a15ees3D755e2yLVwLGX5xCaSzNShvYDbVedT1GFLx1lO23pT400muKK1VmC"
                                                       data-amount="{{ Cart::total() * 100 }}"
                                                       data-name="sba-ecommerce"
                                                       data-description="Buy some books"
